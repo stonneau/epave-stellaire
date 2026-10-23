@@ -34,7 +34,7 @@ Bouton « ↶ Annuler » (ou Ctrl+Z) : autant d'annulations qu'on veut pendant s
 
 ## Écarts connus avec les règles
 
-- Placement des Xénos révélés : l'orientation est choisie automatiquement face au Terminator le plus proche.
+- Placement des Xénos révélés : l'orientation initiale est choisie automatiquement face au Terminator le plus proche ; en contrepartie, tourner à gauche/droite est gratuit tant que le Xéno n'a pas bougé.
 - Parade, garde et relances sont jouées automatiquement au mieux pour l'escouade.
 - Une figurine qui traverse une section en flammes meurt sur 2+ à chaque case.
 - Pas de tir d'overwatch déclenché par une porte qui se ferme.

@@ -389,7 +389,7 @@ function unitBox(v, u) {
   } else if (u.kind === "blip") {
     b.push(btn("reveal", "Révéler", { data: { id: u.id }, disabled: u.act !== "none", secondary: true }));
   } else {
-    const freeTurn = u.side === "GS" && u.free === "turn";
+    const freeTurn = u.side === "GS" && (u.free === "turn" || u.fresh);
     b.push(btn("turn", "↺ Gauche", { data: { id: u.id, dir: -1 }, cost: c(freeTurn ? 0 : 1), disabled: !can(freeTurn ? 0 : 1) }));
     b.push(btn("turn", "↻ Droite", { data: { id: u.id, dir: 1 }, cost: c(freeTurn ? 0 : 1), disabled: !can(freeTurn ? 0 : 1) }));
     if (u.side === "GS") b.push(btn("turn", "Demi-tour", { data: { id: u.id, dir: 2 }, cost: c(1), disabled: !can(1) }));

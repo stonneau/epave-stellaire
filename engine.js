@@ -531,6 +531,7 @@ const ACTIONS = {
     noteActor(s, u);
     u.x = p.x; u.y = p.y;
     u.sus = null;
+    u.fresh = false;
     u.free = u.side === "SM" ? "shot" : "turn";
     if (u.side === "SM") { u.ow = false; u.guard = false; }
     if (wasFlamedSection) {
@@ -575,7 +576,7 @@ const ACTIONS = {
     const d = p.dir; // 1 = droite, -1 = gauche, 2 = demi-tour
     if (d === 2 && u.side === "SM") return "Les Terminators tournent de 90° à la fois.";
     let cost = 1;
-    if (u.side === "GS" && u.free === "turn" && d !== 2) cost = 0;
+    if (u.side === "GS" && (u.free === "turn" || u.fresh) && d !== 2) cost = 0;
     if (!payPlan(s, u, cost)) return "Pas assez de PA/PC.";
     pay(s, u, cost);
     noteActor(s, u);
@@ -757,7 +758,8 @@ const ACTIONS = {
     const cand = placeCandidates(s, sub);
     if (!cand.some((c) => c.x === p.x && c.y === p.y)) return "Case invalide.";
     const id = "g" + s.nextId++;
-    const g = { id, side: "GS", kind: "gs", x: p.x, y: p.y, f: faceNearestMarine(s, p.x, p.y), off: null, ap: 6, act: sub.acted ? "done" : "none", free: false };
+    // fresh : orientation gauche/droite gratuite tant que le Xéno n'a pas bougé (survit au changement de tour).
+    const g = { id, side: "GS", kind: "gs", x: p.x, y: p.y, f: faceNearestMarine(s, p.x, p.y), off: null, ap: 6, act: sub.acted ? "done" : "none", free: false, fresh: true };
     s.units[id] = g;
     sub.count--;
     sub.placed++;
