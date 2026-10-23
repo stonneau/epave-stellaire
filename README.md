@@ -2,6 +2,8 @@
 
 Clone fan, non officiel, du jeu de plateau **Space Hulk** (Games Workshop), 3e/4e édition, pour jouer entre amis. Tout le mérite du jeu revient à ses auteurs ; ce dépôt ne reproduit ni le livret ni les visuels.
 
+Jouer en ligne : **https://stonneau.github.io/epave-stellaire/**
+
 Mission jouable : **Mission I** (carte reconstituée, proportions approximatives).
 
 ## Lancer en local
