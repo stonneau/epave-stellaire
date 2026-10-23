@@ -883,7 +883,7 @@ function checkReveals(s) {
   for (const id in s.units) {
     const b = s.units[id];
     if (b.kind !== "blip" || b.off) continue;
-    if (anyMarineSees(s, b.x, b.y)) revealBlip(s, b, "SM", false);
+    if (anyMarineSees(s, b.x, b.y)) revealBlip(s, b, "GS", false);
   }
 }
 
